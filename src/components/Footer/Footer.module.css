@@ -1,0 +1,9 @@
+.footer {
+    background-color: hsla(0,0%,97%,1);
+    height: 70px;
+}
+
+.input {
+    height: 40px;
+    padding: 8px;
+}

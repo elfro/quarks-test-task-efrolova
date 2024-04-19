@@ -1,0 +1,19 @@
+.message {
+    width: 300px;
+    max-width: 300px;
+    border: 1px solid hsla(0,0%,77%,1);
+    border-radius: 0.25rem;
+    background-color: hsla(0,0%,93%,1);
+    padding: 10px;
+    text-align: left;
+}
+
+.message-outbound {
+    align-self: flex-end;
+    background-color: hsla(0,0%,97%,1);
+}
+
+.message-time {
+    font-size: 0.75rem;
+    color: dimgray;
+}
