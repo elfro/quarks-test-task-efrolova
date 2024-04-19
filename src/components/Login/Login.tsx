@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch } from '@/app/hooks.ts';
+import { useAppDispatch } from '@/app/hooks';
 
 import { createUser } from '@/features/user/user-slice';
 
@@ -11,25 +11,31 @@ import styles from './Login.module.css';
 import { getRandomUserId } from '@/helpers/user.helper.ts';
 
 enum STATUS {
-  pending = 'pending',
-  idle = 'idle',
+  LOADING = 'loading',
+  IDLE = 'idle',
 }
 
 function Login() {
   const [name, setName] = useState('');
   const [avatarURL, setAvatarURL] = useState('');
-  const [status, setStatus] = useState(STATUS.idle);
+  const [status, setStatus] = useState(STATUS.IDLE);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus(STATUS.pending);
+    setStatus(STATUS.LOADING);
 
-    dispatch(createUser({ id: getRandomUserId(), username: name, avatarURL: avatarURL }));
+    dispatch(createUser({ id: crypto.randomUUID(), username: name, avatarURL: avatarURL }));
 
-    setStatus(STATUS.idle);
+    setStatus(STATUS.IDLE);
     navigate('/thread');
   }
 
@@ -57,7 +63,7 @@ function Login() {
         value={avatarURL}
         onChange={(e) => setAvatarURL(e.target.value)}
       />
-      <button>{status === STATUS.pending ? 'Loading...' : 'Start chatting'}</button>
+      <button>{status === STATUS.LOADING ? 'Loading...' : 'Start chatting'}</button>
     </form>
   );
 }

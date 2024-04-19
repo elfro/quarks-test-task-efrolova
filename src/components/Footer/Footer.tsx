@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
-import { useAppDispatch, useAppSelector } from '@/app/hooks.ts';
-import { addMessage } from '@/features/messages/messages-slice.ts';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { addMessage } from '@/features/messages/messages-slice';
 import { FormEvent, useState } from 'react';
 import VisuallyHidden from '@/components/VisuallyHidden/VisuallyHidden.tsx';
 function Footer() {
@@ -16,13 +16,14 @@ function Footer() {
     dispatch(
       addMessage({
         id: crypto.randomUUID(),
-        userId: user.id as string,
+        type: 'outbound',
         content: textMessage,
         date: Date.now(),
       })
     );
     setTextMessage('');
   }
+
   return (
     <footer className={styles.footer}>
       {!isThreadsPage && 'Footer'}

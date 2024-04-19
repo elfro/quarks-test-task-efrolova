@@ -1,6 +1,6 @@
 import PageLayout from '@/components/PageLayout/PageLayout';
-import Login from '@/components/Login/Login.tsx';
-import { useAppSelector } from '@/app/hooks.ts';
+import Login from '@/components/Login/Login';
+import { useAppSelector } from '@/app/hooks';
 import { Navigate } from 'react-router-dom';
 
 function LoginPage() {

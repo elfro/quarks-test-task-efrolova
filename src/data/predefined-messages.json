@@ -1,0 +1,26 @@
+[
+  {
+    "id": "e6501b49-c929-40e2-86cc-66c0d9026aaf",
+    "type": "outbound",
+    "content": "Hola! How are you? Haven't seen you for a while!",
+    "date": 1713440141669
+  },
+  {
+    "id": "e28c9dfa-d53b-463e-9b2b-5f70595a92ba",
+    "type": "inbound",
+    "content": "Hola! I'd like to share my new book, 100 years of solitude",
+    "date": 1713438341669
+  },
+  {
+    "id": "508de1a9-027a-4953-a57d-1c0ace698530",
+    "type": "inbound",
+    "content": "Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.",
+    "date": 1713438461669
+  },
+  {
+    "id": "802adca8-6a62-4404-9b9a-ddb86f8ce399",
+    "type": "inbound",
+    "content": "At that time Macondo was a village of twenty adobe houses",
+    "date": 1713438641669
+  }
+]

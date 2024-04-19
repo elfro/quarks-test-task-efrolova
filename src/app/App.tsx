@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '@/pages/HomePage/HomePage.tsx';
-import LoginPage from '@/pages/LoginPage/LoginPage.tsx';
-import ThreadPage from '@/pages/ThreadPage/ThreadPage.tsx';
+import HomePage from '@/pages/HomePage/HomePage';
+import LoginPage from '@/pages/LoginPage/LoginPage';
+import ThreadPage from '@/pages/ThreadPage/ThreadPage';
 
 function App() {
   return (

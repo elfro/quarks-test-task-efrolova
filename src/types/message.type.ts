@@ -1,6 +1,6 @@
 export interface Message {
   id: string;
-  userId: string;
+  type: 'inbound' | 'outbound';
   content: string;
   date: number;
 }

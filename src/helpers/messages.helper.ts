@@ -1,12 +1,21 @@
-import { Message } from '@/types/message.type.ts';
+import MESSAGES from '@/data/predefined-messages.json';
+import { Message } from '@/types/message.type';
+import { format } from 'date-fns';
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export async function getMessages() {
+  await delay(2500);
+
+  return MESSAGES as Message[];
+}
 
 export const groupMessagesByDate = (messages: Message[] = []) => {
   const sortedMessages = [...messages].sort((x, y) => x.date - y.date);
   const groupedMessages: { [key: string]: Message[] } = {};
 
   sortedMessages.forEach((message) => {
-    const date = new Date(message.date);
-    const groupKey = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
+    const groupKey = format(message.date, 'yyyy-MM-dd');
 
     if (groupedMessages[groupKey]) {
       groupedMessages[groupKey] = [...groupedMessages[groupKey], message];

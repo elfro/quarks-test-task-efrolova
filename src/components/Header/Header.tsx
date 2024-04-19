@@ -1,8 +1,9 @@
-import { useAppDispatch, useAppSelector } from '@/app/hooks.ts';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 import styles from './Header.module.css';
-import { resetUser } from '@/features/user/user-slice.ts';
+import { resetUser } from '@/features/user/user-slice';
 import { useNavigate } from 'react-router-dom';
+import { resetMessages } from '@/features/messages/messages-slice';
 
 function Header() {
   const user = useAppSelector((state) => state.user);
@@ -19,6 +20,7 @@ function Header() {
           <button
             onClick={() => {
               dispatch(resetUser());
+              dispatch(resetMessages());
               navigate('/login');
             }}
           >

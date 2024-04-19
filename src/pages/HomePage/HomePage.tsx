@@ -1,4 +1,4 @@
-import PageLayout from '@/components/PageLayout/PageLayout.tsx';
+import PageLayout from '@/components/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
