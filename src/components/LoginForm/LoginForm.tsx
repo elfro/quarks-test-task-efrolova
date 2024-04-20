@@ -7,15 +7,16 @@ import useAutoFocusElement from '@/hooks/useAutoFocusElement';
 
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
+import Spinner from '@/components/ui/Spinner/Spinner';
 
-import styles from './Login.module.css';
+import styles from './LoginForm.module.css';
 
 enum STATUS {
   LOADING = 'loading',
   IDLE = 'idle',
 }
 
-function Login() {
+function LoginForm() {
   const [name, setName] = useState('');
   const [avatarURL, setAvatarURL] = useState('');
   const [status, setStatus] = useState(STATUS.IDLE);
@@ -45,13 +46,15 @@ function Login() {
           placeholder='Recipient name'
           label='Recipient name'
           required={true}
+          minLength={1}
+          maxLength={60}
           ref={inputRef}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <Input
           id='avatar'
-          type='text'
+          type='url'
           size='small'
           placeholder='Avatar URL'
           label='Avatar URL'
@@ -60,11 +63,11 @@ function Login() {
           onChange={(e) => setAvatarURL(e.target.value)}
         />
         <Button title='Start chatting'>
-          {status === STATUS.LOADING ? 'Loading...' : 'Start chatting'}
+          {status === STATUS.LOADING ? <Spinner /> : 'Start chatting'}
         </Button>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default LoginForm;

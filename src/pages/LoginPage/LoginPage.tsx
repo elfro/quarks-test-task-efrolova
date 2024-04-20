@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import { useAppSelector } from '@/app/hooks';
 
 import PageLayout from '@/components/PageLayout/PageLayout';
-import Login from '@/components/Login/Login';
+import LoginForm from '@/components/LoginForm/LoginForm.tsx';
 
 function LoginPage() {
   const user = useAppSelector((state) => state.user);
@@ -13,7 +13,7 @@ function LoginPage() {
 
   return (
     <PageLayout>
-      <Login />
+      <LoginForm />
     </PageLayout>
   );
 }

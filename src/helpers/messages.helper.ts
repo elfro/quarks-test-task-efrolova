@@ -6,7 +6,7 @@ import MESSAGES from '@/data/predefined-messages.json';
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function getMessages() {
-  await delay(500);
+  await delay(1000);
 
   return MESSAGES as Message[];
 }

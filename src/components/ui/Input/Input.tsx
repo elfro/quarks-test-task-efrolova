@@ -12,10 +12,12 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   size?: 'small' | 'medium' | 'large';
   required?: boolean | undefined;
+  minLength?: number;
+  maxLength?: number;
   disabled?: boolean | undefined;
 }
 function Input(props: InputProps, ref: React.Ref<HTMLInputElement>) {
-  const { id, type, size, label, placeholder, value, onChange, required, disabled } = props;
+  const { id, type, size, label, placeholder, value, onChange, ...prop } = props;
   const width = size === 'small' ? 200 : size === 'large' ? 500 : 300;
 
   return (
@@ -32,8 +34,10 @@ function Input(props: InputProps, ref: React.Ref<HTMLInputElement>) {
         id={id}
         type={type}
         placeholder={placeholder}
-        required={required}
-        disabled={disabled}
+        required={prop.required}
+        minLength={prop.minLength}
+        maxLength={prop.maxLength}
+        disabled={prop.disabled}
         className={styles.input}
         value={value}
         onChange={onChange}
