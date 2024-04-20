@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function getMessages() {
-  await delay(2500);
+  await delay(500);
 
   return MESSAGES as Message[];
 }

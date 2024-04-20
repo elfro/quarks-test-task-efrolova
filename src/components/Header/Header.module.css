@@ -1,4 +1,23 @@
 .header {
-    background-color: hsla(0,0%,97%,1);
-    height: 70px;
+    height: var(--header-height);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-gray-100);
+    padding: 8px var(--padding-horizontal-content);
+    border-bottom: 1px solid var(--color-gray-500);
+}
+
+.heading-wrapper {
+    width: 100%;
+}
+
+.actions-wrapper {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

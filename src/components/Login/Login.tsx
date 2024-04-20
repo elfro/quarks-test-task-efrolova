@@ -5,10 +5,10 @@ import { useAppDispatch } from '@/app/hooks';
 
 import { createUser } from '@/features/user/user-slice';
 
-import VisuallyHidden from '@/components/VisuallyHidden/VisuallyHidden';
-
 import styles from './Login.module.css';
-import { getRandomUserId } from '@/helpers/user.helper.ts';
+import Input from '@/components/ui/input/Input.tsx';
+import Button from '@/components/ui/Button/Button.tsx';
+import useAutoFocusElement from '@/hooks/useAutoFocusElement.ts';
 
 enum STATUS {
   LOADING = 'loading',
@@ -23,11 +23,7 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  const inputRef = useAutoFocusElement();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,31 +36,34 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.loginForm}>
-      <label htmlFor='name'>
-        <VisuallyHidden>Recipient name</VisuallyHidden>
-      </label>
-      <input
-        id='name'
-        placeholder='Recipient name'
-        required
-        className={styles.input}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <label htmlFor='avatar'>
-        <VisuallyHidden>Avatar URL</VisuallyHidden>
-      </label>
-      <input
-        id='avatar'
-        placeholder='Avatar URL'
-        required
-        className={styles.input}
-        value={avatarURL}
-        onChange={(e) => setAvatarURL(e.target.value)}
-      />
-      <button>{status === STATUS.LOADING ? 'Loading...' : 'Start chatting'}</button>
-    </form>
+    <div className={styles.wrapper}>
+      <form onSubmit={handleSubmit} className={styles.loginForm}>
+        <Input
+          id='name'
+          type='text'
+          size='small'
+          placeholder='Recipient name'
+          label='Recipient name'
+          required={true}
+          ref={inputRef}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          id='avatar'
+          type='text'
+          size='small'
+          placeholder='Avatar URL'
+          label='Avatar URL'
+          required={true}
+          value={avatarURL}
+          onChange={(e) => setAvatarURL(e.target.value)}
+        />
+        <Button title='Start chatting'>
+          {status === STATUS.LOADING ? 'Loading...' : 'Start chatting'}
+        </Button>
+      </form>
+    </div>
   );
 }
 

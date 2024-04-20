@@ -27,7 +27,7 @@ body {
  */
 
 body {
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
 }
 
 /*
@@ -38,6 +38,9 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
 /*

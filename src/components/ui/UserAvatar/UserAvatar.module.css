@@ -1,0 +1,15 @@
+.avatar {
+    --size: 32px;
+
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+@media (min-width: 68.75rem) {
+    .avatar {
+        --size: 40px;
+    }
+}
