@@ -1,12 +1,15 @@
-import styles from './SendMessageForm.module.css';
-import Input from '@/components/ui/input/Input';
+import { FormEvent, useState } from 'react';
+
+import { useAppDispatch } from '@/app/hooks';
+import { addMessage } from '@/features/messages/messages-slice';
+import useAutoFocusElement from '@/hooks/useAutoFocusElement';
+
+import Input from '@/components/ui/Input/Input';
 import IconButton from '@/components/ui/IconButton/IconButton';
 import Icon from '@/components/ui/Icon/Icon';
-import { FormEvent, useState } from 'react';
-import { addMessage } from '@/features/messages/messages-slice';
-import { useAppDispatch } from '@/app/hooks';
+
 import Send from '@/assets/send.svg?react';
-import useAutoFocusElement from '@/hooks/useAutoFocusElement.ts';
+import styles from './SendMessageForm.module.css';
 
 function SendMessageForm() {
   const [textMessage, setTextMessage] = useState('');

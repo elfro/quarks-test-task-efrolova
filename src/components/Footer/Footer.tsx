@@ -1,7 +1,7 @@
-import styles from './Footer.module.css';
 import { useAppSelector } from '@/app/hooks';
+import SendMessageForm from '@/components/SendMessageForm/SendMessageForm';
 
-import SendMessageForm from '@/components/SendMessageForm/SendMessageForm.tsx';
+import styles from './Footer.module.css';
 
 function Footer() {
   const user = useAppSelector((state) => state.user);

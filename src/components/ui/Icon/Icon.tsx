@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { FC, SVGProps } from 'react';
 
-export type SVGElement = React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
+export type SVGElement = FC<SVGProps<SVGSVGElement> & { title?: string }>;
 
 export interface IconProps {
   IconEl: SVGElement;

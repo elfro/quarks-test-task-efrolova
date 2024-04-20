@@ -1,18 +1,19 @@
-import { format, isThisYear } from 'date-fns';
-import { groupMessagesByDate } from '@/helpers/messages.helper';
 import { Fragment, useEffect, useId } from 'react';
+import { format, isThisYear } from 'date-fns';
 
-import MessageCard from '@/components/MessageCard/MessageCard';
-
-import styles from './MessagesList.module.css';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { fetchMessages } from '@/features/messages/messages-slice';
-import Spinner from '@/components/ui/Spinner/Spinner.tsx';
+
+import MessageCard from '@/components/MessageCard/MessageCard';
+import Spinner from '@/components/ui/Spinner/Spinner';
+
+import { groupMessagesByDate } from '@/helpers/messages.helper';
+import styles from './MessagesList.module.css';
 
 function MessagesList() {
   const id = useId();
-  const { loading, messages, error } = useAppSelector((state) => state.messages);
   const dispatch = useAppDispatch();
+  const { loading, messages, error } = useAppSelector((state) => state.messages);
 
   useEffect(() => {
     dispatch(fetchMessages());
@@ -36,23 +37,19 @@ function MessagesList() {
     return format(actualDate, formatStr);
   };
 
-  const groupedMessages = groupMessagesByDate(messages);
+  const groupedMessages = Object.entries(groupMessagesByDate(messages));
 
-  return (
-    <>
-      {Object.entries(groupedMessages).map(([date, messages]) => {
-        const groupId = `${id}-${date}`;
-        return (
-          <Fragment key={groupId}>
-            <div className={styles.date}>{formatDate(date)}</div>
-            {messages.map((msg) => {
-              return <MessageCard key={msg.id} message={msg} type={msg.type} />;
-            })}
-          </Fragment>
-        );
-      })}
-    </>
-  );
+  return groupedMessages.map(([date, messages]) => {
+    const groupId = `${id}-${date}`;
+    return (
+      <Fragment key={groupId}>
+        <div className={styles.date}>{formatDate(date)}</div>
+        {messages.map((msg) => {
+          return <MessageCard key={msg.id} message={msg} type={msg.type} />;
+        })}
+      </Fragment>
+    );
+  });
 }
 
 export default MessagesList;

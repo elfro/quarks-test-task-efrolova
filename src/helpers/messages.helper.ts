@@ -1,6 +1,7 @@
-import MESSAGES from '@/data/predefined-messages.json';
-import { Message } from '@/types/message.type';
 import { format } from 'date-fns';
+
+import { Message } from '@/types/message.type';
+import MESSAGES from '@/data/predefined-messages.json';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

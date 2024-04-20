@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState } from 'react';
+
 import styles from './UserAvatar.module.css';
 
 interface UserAvatarProps {
@@ -6,7 +7,7 @@ interface UserAvatarProps {
   src: string;
 }
 function UserAvatar({ src, alt }: UserAvatarProps) {
-  const [imgSrc, setImgSrc] = React.useState(src);
+  const [imgSrc, setImgSrc] = useState(src);
 
   return (
     <img

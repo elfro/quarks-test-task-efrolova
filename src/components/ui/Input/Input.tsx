@@ -1,5 +1,6 @@
 import * as React from 'react';
-import VisuallyHidden from '@/components/ui/VisuallyHidden/VisuallyHidden.tsx';
+
+import VisuallyHidden from '@/components/ui/VisuallyHidden/VisuallyHidden';
 import styles from './Input.module.css';
 
 interface InputProps {

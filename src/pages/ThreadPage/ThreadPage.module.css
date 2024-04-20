@@ -1,12 +1,19 @@
 .wrapper {
     --content-width: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    gap: 1rem;
+
     width: var(--content-width);
     padding: var(--padding-vertical-content) var(--padding-horizontal-content);
-    gap: 1rem;
-    overflow-anchor: auto;
-    overflow-y: auto;
     min-height: 100%;
+    overflow-anchor: none;
+}
+
+.anchor {
+    overflow-anchor: auto;
+    height: 20px;
+    margin-top: -20px;
 }

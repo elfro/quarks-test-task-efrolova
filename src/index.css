@@ -21,24 +21,18 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  text-align: center;
 
-  color-scheme: light dark;
   color: var(--color-black);
   background-color: var(--color-white);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
 body {
   height: 100svh;
+}
+
+#root {
+  height: 100%;
 }
 
 @media (min-width: 34.375rem) {
@@ -53,8 +47,5 @@ body {
   }
 }
 
-#root {
-  height: 100%;
-  text-align: center;
-}
+
 

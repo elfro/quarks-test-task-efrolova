@@ -1,6 +1,6 @@
-import styles from './Spinner.module.css';
-import Icon, { IconProps } from '@/components/ui/Icon/Icon.tsx';
+import Icon, { IconProps } from '@/components/ui/Icon/Icon';
 
+import styles from './Spinner.module.css';
 import Loader from '@/assets/loader.svg?react';
 
 function Spinner({ size, thickness }: Partial<IconProps>) {

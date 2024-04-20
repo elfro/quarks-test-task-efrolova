@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
@@ -6,7 +6,7 @@ import Footer from '@/components/Footer/Footer';
 import styles from './PageLayout.module.css';
 
 interface PageLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 function PageLayout({ children }: PageLayoutProps) {
   return (

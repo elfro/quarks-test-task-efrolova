@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { ReactNode } from 'react';
 
 import styles from './VisuallyHidden.module.css';
 
 interface VisuallyHiddenProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function VisuallyHidden({ children, ...delegated }: VisuallyHiddenProps) {

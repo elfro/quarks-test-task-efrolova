@@ -1,14 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { resetUser } from '@/features/user/user-slice';
+import { resetMessages } from '@/features/messages/messages-slice';
+
+import UserAvatar from '@/components/ui/UserAvatar/UserAvatar';
+import Heading from '@/components/ui/Heading/Heading';
+import IconButton from '@/components/ui/IconButton/IconButton';
+import Icon from '@/components/ui/Icon/Icon';
 
 import styles from './Header.module.css';
-import { resetUser } from '@/features/user/user-slice';
-import { useNavigate } from 'react-router-dom';
-import { resetMessages } from '@/features/messages/messages-slice';
-import UserAvatar from '@/components/ui/UserAvatar/UserAvatar.tsx';
-import Heading from '@/components/ui/Heading/Heading.tsx';
-import IconButton from '@/components/ui/IconButton/IconButton.tsx';
-import Icon from '../ui/Icon/Icon';
-
 import Logout from '@/assets/logout.svg?react';
 import Reset from '@/assets/reset.svg?react';
 

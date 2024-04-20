@@ -2,13 +2,13 @@ import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '@/app/hooks';
-
 import { createUser } from '@/features/user/user-slice';
+import useAutoFocusElement from '@/hooks/useAutoFocusElement';
+
+import Input from '@/components/ui/Input/Input';
+import Button from '@/components/ui/Button/Button';
 
 import styles from './Login.module.css';
-import Input from '@/components/ui/input/Input.tsx';
-import Button from '@/components/ui/Button/Button.tsx';
-import useAutoFocusElement from '@/hooks/useAutoFocusElement.ts';
 
 enum STATUS {
   LOADING = 'loading',

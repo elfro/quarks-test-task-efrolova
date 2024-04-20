@@ -1,12 +1,13 @@
-import styles from './IconButton.module.css';
 import * as React from 'react';
-import VisuallyHidden from '@/components/ui/VisuallyHidden/VisuallyHidden.tsx';
-import { IconProps } from '@/components/ui/Icon/Icon.tsx';
-import { ReactElement } from 'react';
+
+import VisuallyHidden from '@/components/ui/VisuallyHidden/VisuallyHidden';
+import { IconProps } from '@/components/ui/Icon/Icon';
+
+import styles from './IconButton.module.css';
 
 interface IconButtonProps {
   title: string;
-  icon: ReactElement<IconProps>;
+  icon: React.ReactElement<IconProps>;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean | undefined;
 }

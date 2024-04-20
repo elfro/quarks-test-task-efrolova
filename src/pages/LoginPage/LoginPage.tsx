@@ -1,7 +1,8 @@
+import { Navigate } from 'react-router-dom';
+import { useAppSelector } from '@/app/hooks';
+
 import PageLayout from '@/components/PageLayout/PageLayout';
 import Login from '@/components/Login/Login';
-import { useAppSelector } from '@/app/hooks';
-import { Navigate } from 'react-router-dom';
 
 function LoginPage() {
   const user = useAppSelector((state) => state.user);

@@ -1,15 +1,18 @@
-import styles from './MessageCard.module.css';
-import { Message } from '@/types/message.type';
-import { format } from 'date-fns';
 import clsx from 'clsx';
+import { format } from 'date-fns';
+
+import { Message } from '@/types/message.type';
+
+import styles from './MessageCard.module.css';
 
 interface MessageCardProps {
   message: Message;
   type: 'inbound' | 'outbound';
 }
+
 function MessageCard({ message, type = 'inbound' }: MessageCardProps) {
   const { content, date } = message;
-  const formatTime = (date: number | string) => format(new Date(date), 'hh:mm');
+  const formatTime = (date: number | string) => format(new Date(date), 'HH:mm');
 
   const wrapperClassName = clsx(styles.message, type === 'outbound' && styles.messageOutbound);
 

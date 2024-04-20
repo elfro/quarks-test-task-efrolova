@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean | undefined;
 }
+
 function Button({ title, children, onClick, disabled }: ButtonProps) {
   return (
     <button
