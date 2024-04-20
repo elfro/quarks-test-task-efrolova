@@ -1,19 +1,19 @@
 @keyframes spin {
-    from {
-        transform: rotate(-360deg);
-    }
+  from {
+    transform: rotate(-360deg);
+  }
 }
 
 .wrapper {
-    display: block;
-    width: min-content;
-    height: min-content;
-    animation: spin 1000ms linear infinite;
-    opacity: 0.7;
-    margin: 0 auto;
+  display: block;
+  width: min-content;
+  height: min-content;
+  animation: spin 1000ms linear infinite;
+  opacity: 0.7;
+  margin: 0 auto;
 
-    & svg {
-        display: block;
-        max-width: revert;
-    }
+  & svg {
+    display: block;
+    max-width: revert;
+  }
 }

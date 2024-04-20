@@ -1,19 +1,19 @@
 .wrapper {
-    --content-width: 100%;
+  --content-width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
 
-    width: var(--content-width);
-    padding: var(--padding-vertical-content) var(--padding-horizontal-content);
-    min-height: 100%;
-    overflow-anchor: none;
+  width: var(--content-width);
+  padding: var(--padding-vertical-content) var(--padding-horizontal-content);
+  min-height: 100%;
+  overflow-anchor: none;
 }
 
 .anchor {
-    overflow-anchor: auto;
-    height: 20px;
-    margin-top: -20px;
+  overflow-anchor: auto;
+  height: 20px;
+  margin-top: -20px;
 }

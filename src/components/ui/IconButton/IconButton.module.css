@@ -1,36 +1,35 @@
 .icon-button {
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    text-align: left;
-    font: inherit;
-    color: inherit;
-    flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  flex-shrink: 0;
 
-    &:focus,
-    &:hover {
-        outline: revert;
-    }
+  &:focus,
+  &:hover {
+    outline: revert;
+  }
 
-    &:focus {
-        outline-offset: 5px;
-    }
+  &:focus {
+    outline-offset: 5px;
+  }
 
-    &:focus:not(:focus-visible) {
-        outline: none;
-    }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 .icon-button:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .icon-button:not(:disabled) > svg:hover {
-        filter: drop-shadow(3px 3px 2px var(--color-gray-500));
-    }
+  .icon-button:not(:disabled) > svg:hover {
+    filter: drop-shadow(3px 3px 2px var(--color-gray-500));
+  }
 }
-
