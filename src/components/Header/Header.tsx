@@ -21,13 +21,17 @@ function Header() {
   const isLoggedIn = user && user.id !== null;
 
   function handleResetMessages() {
-    dispatch(resetMessages());
+    if (window.confirm('Do you really want to delete all messages?')) {
+      dispatch(resetMessages());
+    }
   }
 
   function handleExitChat() {
-    dispatch(resetUser());
-    dispatch(resetMessages());
-    navigate('/login');
+    if (window.confirm('Do you really want to leave the chat?')) {
+      dispatch(resetUser());
+      dispatch(resetMessages());
+      navigate('/login');
+    }
   }
 
   return (
