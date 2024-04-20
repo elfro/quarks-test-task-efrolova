@@ -1,0 +1,19 @@
+.heading {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--color-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  margin-right: 8px;
+}
+
+@media (min-width: 68.75rem) {
+  .heading {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+}

@@ -1,35 +1,26 @@
+import { Fragment, useEffect, useId } from 'react';
 import { format, isThisYear } from 'date-fns';
-import { groupMessagesByDate } from '@/helpers/messages.helper';
-import { useEffect, useId, useState } from 'react';
-import { Message } from '@/types/message.type';
 
-import MessageCard from '@/components/MessageCard/MessageCard';
-
-import styles from './MessagesList.module.css';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { fetchMessages } from '@/features/messages/messages-slice';
 
+import MessageCard from '@/components/MessageCard/MessageCard';
+import Spinner from '@/components/ui/Spinner/Spinner';
+
+import { groupMessagesByDate } from '@/helpers/messages.helper';
+import styles from './MessagesList.module.css';
+
 function MessagesList() {
   const id = useId();
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | undefined>(undefined);
-
-  const selectedMessages = useAppSelector((state) => state.messages);
   const dispatch = useAppDispatch();
+  const { loading, messages, error } = useAppSelector((state) => state.messages);
 
   useEffect(() => {
     dispatch(fetchMessages());
-  }, []);
-
-  useEffect(() => {
-    setLoading(selectedMessages.loading);
-    setError(selectedMessages.error);
-    setMessages(selectedMessages.messages);
-  }, [selectedMessages]);
+  }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {
@@ -39,23 +30,24 @@ function MessagesList() {
   if (messages.length === 0) {
     return <div>No messages here yet...</div>;
   }
+
   const formatDate = (date: number | string) => {
     const actualDate = new Date(date);
     const formatStr = isThisYear(actualDate) ? 'MMM dd' : 'MMM dd, yyyy';
     return format(actualDate, formatStr);
   };
 
-  const groupedMessages = groupMessagesByDate(messages);
+  const groupedMessages = Object.entries(groupMessagesByDate(messages));
 
-  return Object.entries(groupedMessages).map(([date, messages]) => {
+  return groupedMessages.map(([date, messages]) => {
     const groupId = `${id}-${date}`;
     return (
-      <div key={groupId} className={styles.groupWrapper}>
+      <Fragment key={groupId}>
         <div className={styles.date}>{formatDate(date)}</div>
         {messages.map((msg) => {
           return <MessageCard key={msg.id} message={msg} type={msg.type} />;
         })}
-      </div>
+      </Fragment>
     );
   });
 }

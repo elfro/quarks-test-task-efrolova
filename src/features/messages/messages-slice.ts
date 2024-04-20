@@ -1,6 +1,7 @@
-import { Message } from '@/types/message.type';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { getMessages } from '@/helpers/messages.helper';
+import { Message } from '@/types/message.type';
 
 interface MessagesState {
   loading: boolean;

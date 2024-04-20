@@ -1,30 +1,19 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 60%;
-    margin: 20px;
-    gap: 1.5rem;
-    align-self: flex-end;
+  --content-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  width: var(--content-width);
+  padding: var(--padding-vertical-content) var(--padding-horizontal-content);
+  min-height: 100%;
+  overflow-anchor: none;
 }
 
-.group-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-
-}
-
-.date {
-    align-self: center;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
-.message-outbound {
-    align-self: flex-end;
-    background-color: hsla(0,0%,97%,1);
+.anchor {
+  overflow-anchor: auto;
+  height: 20px;
+  margin-top: -20px;
 }
