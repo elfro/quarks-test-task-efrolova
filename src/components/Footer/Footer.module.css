@@ -1,7 +1,0 @@
-.footer {
-  width: 100%;
-  height: var(--footer-height);
-  background-color: var(--color-gray-100);
-  padding: var(--padding-vertical-content) var(--padding-horizontal-content);
-  border-top: 1px solid var(--color-gray-500);
-}

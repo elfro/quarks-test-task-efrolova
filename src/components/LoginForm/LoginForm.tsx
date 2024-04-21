@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '@/app/hooks';
 import { createUser } from '@/features/user/user-slice';
@@ -21,7 +20,6 @@ function LoginForm() {
   const [avatarURL, setAvatarURL] = useState('');
   const [status, setStatus] = useState(STATUS.IDLE);
 
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const inputRef = useAutoFocusElement();
@@ -33,7 +31,6 @@ function LoginForm() {
     dispatch(createUser({ id: crypto.randomUUID(), username: name, avatarURL: avatarURL }));
 
     setStatus(STATUS.IDLE);
-    navigate('/thread');
   }
 
   return (

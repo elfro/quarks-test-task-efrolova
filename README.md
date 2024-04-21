@@ -28,3 +28,19 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+### Media breakpoints
+
+```ts
+const BREAKPOINTS = {
+  tabletMin: 550,
+  laptopMin: 1100,
+  desktopMin: 1500,
+};
+
+const QUERIES = {
+  tabletAndUp: `(min-width: ${BREAKPOINTS.tabletMin / 16}rem)`, // @media (min-width: 34.375rem)
+  laptopAndUp: `(min-width: ${BREAKPOINTS.laptopMin / 16}rem)`, // @media (min-width: 68.75rem)
+  desktopAndUp: `(min-width: ${BREAKPOINTS.desktopMin / 16}rem)`, // @media (min-width: 93.75rem)
+};
+```

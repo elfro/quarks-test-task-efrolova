@@ -1,19 +1,18 @@
 import { ReactNode } from 'react';
 
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
-
 import styles from './PageLayout.module.css';
 
 interface PageLayoutProps {
   children: ReactNode;
+  header?: ReactNode;
+  footer?: ReactNode;
 }
-function PageLayout({ children }: PageLayoutProps) {
+function PageLayout({ header, footer, children }: PageLayoutProps) {
   return (
     <div className={styles.wrapper}>
-      <Header />
+      <header className={styles.header}>{header}</header>
       <main className={styles.main}>{children}</main>
-      <Footer />
+      <footer className={styles.footer}>{footer}</footer>
     </div>
   );
 }
