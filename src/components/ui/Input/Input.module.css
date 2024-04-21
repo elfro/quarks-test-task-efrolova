@@ -21,6 +21,7 @@
 
 .input:disabled {
   cursor: not-allowed;
+  opacity: var(--opacity-disabled);
 }
 
 @media (min-width: 34.375rem) {

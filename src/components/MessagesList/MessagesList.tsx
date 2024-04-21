@@ -7,7 +7,7 @@ import { fetchMessages } from '@/features/messages/messages-slice';
 import MessageCard from '@/components/MessageCard/MessageCard';
 import Spinner from '@/components/ui/Spinner/Spinner';
 
-import { groupMessagesByDate } from '@/helpers/messages.helper';
+import { sortAndGroupMessagesByDate } from '@/helpers/messages.helper';
 import styles from './MessagesList.module.css';
 
 function MessagesList() {
@@ -37,7 +37,7 @@ function MessagesList() {
     return format(actualDate, formatStr);
   };
 
-  const groupedMessages = Object.entries(groupMessagesByDate(messages));
+  const groupedMessages = Object.entries(sortAndGroupMessagesByDate(messages));
 
   return groupedMessages.map(([date, messages]) => {
     const groupId = `${id}-${date}`;
