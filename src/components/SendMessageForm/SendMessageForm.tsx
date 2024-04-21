@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { addMessage } from '@/features/messages/messages-slice';
 import useAutoFocusElement from '@/hooks/useAutoFocusElement';
 
@@ -13,6 +13,7 @@ import styles from './SendMessageForm.module.css';
 
 function SendMessageForm() {
   const [textMessage, setTextMessage] = useState('');
+  const { loading, error } = useAppSelector((state) => state.messages);
   const dispatch = useAppDispatch();
   const inputRef = useAutoFocusElement([textMessage]);
 
@@ -32,16 +33,21 @@ function SendMessageForm() {
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
       <Input
-        id='message'
+        id='message-input'
         type='text'
         placeholder='Drop a few lines...'
         label='Input field to drop your message'
         required={true}
+        disabled={loading || !!error}
         value={textMessage}
         ref={inputRef}
         onChange={(e) => setTextMessage(e.target.value)}
       />
-      <IconButton title='Send message' icon={<Icon IconEl={Send} />} />
+      <IconButton
+        title='Send message'
+        icon={<Icon IconEl={Send} />}
+        disabled={loading || !!error}
+      />
     </form>
   );
 }

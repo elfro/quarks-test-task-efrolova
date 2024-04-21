@@ -14,7 +14,13 @@ interface IconButtonProps {
 
 function IconButton({ title, icon, onClick, disabled }: IconButtonProps) {
   return (
-    <button className={styles.iconButton} onClick={onClick} disabled={disabled} title={title}>
+    <button
+      className={styles.iconButton}
+      onClick={onClick}
+      disabled={disabled}
+      title={title}
+      aria-label={title}
+    >
       {icon}
       <VisuallyHidden>{title}</VisuallyHidden>
     </button>
