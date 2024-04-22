@@ -122,6 +122,20 @@ npm run format:fix
 
 ### Add inbound message via Redux DevTools
 
+Use the following snippet to add inbound message via Redux DevTools dispatcher:
+
+```ts
+{
+  type: 'messages/addMessage',
+  payload: {
+    id: 'mock_message_id',
+    type: 'outbound',
+    content: 'mock inbound message text',
+    date: YOUR_TIMESTAMP
+  }
+}
+```
+
 ## Known issues
 
 - To auto scroll to a new added message in the messages list, `overflow-anchor` is used. There are some pitfalls that were discovered during testing:
