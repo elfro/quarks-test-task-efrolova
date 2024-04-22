@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { getMessages } from '@/helpers/messages.helper';
 import { Message } from '@/types/message.type';
+import MESSAGES from '@/data/predefined-messages.json';
 
 interface MessagesState {
   loading: boolean;
@@ -16,7 +16,9 @@ const initialState: MessagesState = {
 };
 
 export const fetchMessages = createAsyncThunk('messages/fetchMessages', async () => {
-  return await getMessages();
+  await delay(1000);
+
+  return MESSAGES as Message[];
 });
 
 const messagesSlice = createSlice({
@@ -45,6 +47,8 @@ const messagesSlice = createSlice({
     },
   },
 });
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const { addMessage, resetMessages } = messagesSlice.actions;
 

@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { useAppSelector } from '@/app/hooks';
 
@@ -22,7 +23,17 @@ function ThreadPage() {
   return (
     <PageLayout header={<ThreadHeader />} footer={<SendMessageForm />}>
       <div className={styles.wrapper}>
-        <MessagesList />
+        <ErrorBoundary
+          fallback={
+            <p>
+              Oops...
+              <br />
+              Failed to load messages.
+            </p>
+          }
+        >
+          <MessagesList />
+        </ErrorBoundary>
       </div>
       <div className={styles.anchor} ref={anchorRef} />
     </PageLayout>
