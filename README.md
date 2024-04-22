@@ -2,6 +2,8 @@
 
 The deployed version of the app can be found here: https://quarks-test-task-efrolova.vercel.app/.
 
+[![Demo of the solution](https://img.youtube.com/vi/ffhTs-vLtYQ/0.jpg)](https://www.youtube.com/watch?v=ffhTs-vLtYQ)
+
 ## Tech Stack
 
 - [React](https://react.dev)
@@ -118,6 +120,8 @@ npm run format
 npm run format:fix
 ```
 
+### Add inbound message via Redux DevTools
+
 ## Known issues
 
 - To auto scroll to a new added message in the messages list, `overflow-anchor` is used. There are some pitfalls that were discovered during testing:
@@ -129,3 +133,4 @@ npm run format:fix
 - Input field validation is super basic.
 - User state isn't persisted when reloading the page.
 - Hover, focus, disabled states, tablet / laptop / desktop versions, as well as favicon, are styled using my own imagination, as the designs cover the mobile version only.
+- Added reset all messages and exit chat actions.
