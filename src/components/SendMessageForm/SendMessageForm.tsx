@@ -13,7 +13,7 @@ import styles from './SendMessageForm.module.css';
 
 function SendMessageForm() {
   const [textMessage, setTextMessage] = useState('');
-  const { loading } = useAppSelector((state) => state.messages);
+  const { loading, error } = useAppSelector((state) => state.messages);
   const dispatch = useAppDispatch();
   const inputRef = useAutoFocusElement([textMessage]);
 
@@ -38,12 +38,16 @@ function SendMessageForm() {
         placeholder='Drop a few lines...'
         label='Input field to drop your message'
         required={true}
-        disabled={loading}
+        disabled={loading || !!error}
         value={textMessage}
         ref={inputRef}
         onChange={(e) => setTextMessage(e.target.value)}
       />
-      <IconButton title='Send message' icon={<Icon IconEl={Send} />} disabled={loading} />
+      <IconButton
+        title='Send message'
+        icon={<Icon IconEl={Send} />}
+        disabled={loading || !!error}
+      />
     </form>
   );
 }

@@ -1,16 +1,6 @@
 import { format } from 'date-fns';
 
 import { Message } from '@/types/message.type';
-import MESSAGES from '@/data/predefined-messages.json';
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-export async function getMessages() {
-  await delay(1000);
-
-  return MESSAGES as Message[];
-}
-
 export const sortMessagesByDate = (messages: Message[] = [], orderBy: 'ASC' | 'DESC' = 'ASC') => {
   const sortFn =
     orderBy === 'ASC'

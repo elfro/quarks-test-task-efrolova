@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAppSelector } from '@/app/hooks';
 
 import LoginPage from '@/pages/LoginPage/LoginPage';
-import ThreadPage from '@/pages/ThreadPage/ThreadPage';
+import ThreadPage from '@/pages/ThreadPage';
 
 function App() {
   const user = useAppSelector((state) => state.user);
