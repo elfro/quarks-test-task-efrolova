@@ -16,7 +16,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: './tests.setup.ts',
+    setupFiles: './src/tests.setup.ts',
     alias: {
       '@/': new URL('./src/', import.meta.url).pathname,
     },
